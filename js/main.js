@@ -4,13 +4,13 @@ async function fetchHtmlAsText(url) {
   return await response.text();
 }
 
-async function importPage(id, dir) {
-  document.querySelector('#' + id).innerHTML = await fetchHtmlAsText(dir + '.html');
+async function importPage(target) {
+  document.querySelector('#' + target).innerHTML = await fetchHtmlAsText(target + '.html');
 }
 
 (async function () {
-  await importPage('header', 'html/header');
-  await importPage('footer', 'html/footer');
+  await importPage('header');
+  await importPage('footer');
   /* 주메뉴 */
   const gnbMenu = document.querySelectorAll('.gnb>ul>li');
   const headerWrap = document.querySelector('.header_wrap');
